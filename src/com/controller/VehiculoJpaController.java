@@ -16,6 +16,7 @@ import com.entities.Vehiculo;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -26,6 +27,12 @@ public class VehiculoJpaController implements Serializable {
     public VehiculoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public VehiculoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("caso_de_estudioPU");
+    }
+    
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
